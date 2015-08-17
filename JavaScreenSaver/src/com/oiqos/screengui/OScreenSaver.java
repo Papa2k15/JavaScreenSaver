@@ -6,12 +6,16 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.awt.event.KeyAdapter;
 import java.awt.Color;
 
@@ -58,6 +62,8 @@ public class OScreenSaver extends Applet {
 	private String findFile() {
 		fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Choose GIF image for screensaver.");
+		FileFilter filter = new FileNameExtensionFilter("GIF File","gif");
+		fileChooser.setFileFilter(filter);
 		int jfcoption = fileChooser.showOpenDialog(frame);
 		if(jfcoption != JFileChooser.APPROVE_OPTION){
 			JOptionPane.showMessageDialog(frame,"Thanks for using OScreenSaver");
